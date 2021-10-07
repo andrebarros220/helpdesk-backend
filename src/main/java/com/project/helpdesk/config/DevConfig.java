@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Profile;
 import com.project.helpdesk.services.DBService;
 
 @Configuration
-@Profile("test")
+@Profile("dev")
 public class DevConfig {
 
 @Autowired
@@ -19,7 +19,7 @@ private DBService dbService;
 private String value;
 	
 @Bean
-	public boolean  instanciaDB(){
+	public boolean instanciaDB(){
 	if(value.equals("create")) {
 		this.dbService.instanciaDB();
 	}

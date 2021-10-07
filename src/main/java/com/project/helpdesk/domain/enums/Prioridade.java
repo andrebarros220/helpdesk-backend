@@ -3,7 +3,7 @@ package com.project.helpdesk.domain.enums;
 import javax.management.relation.Role;
 
 public enum Prioridade {
-	BAIXA(0,"ROLE_BAIXA"), MEDIA(1, "ROLE_MEDIA"), ALTA(2, "ENCERRADO_ALTA");
+	BAIXA(0,"ROLE_BAIXA"), MEDIA(1, "ROLE_MEDIA"), ALTA(2, "ROLE_ALTA");
 	
 	private Integer codigo;
 	private String descricao;

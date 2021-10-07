@@ -17,22 +17,18 @@ import com.project.helpdesk.domain.enums.Status;
 
 @Entity
 public class Chamado implements Serializable {
-	
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)	
    private Integer id;
 	
-   @JsonFormat(pattern = "dd/mm/yyyy")
+   @JsonFormat(pattern = "dd/MM/yyyy")
    private LocalDate dataAbertura = LocalDate.now();
    
-	@JsonFormat(pattern = "dd/mm/yyyy")
+	@JsonFormat(pattern = "dd/MM/yyyy")
    private LocalDate dataFechamento;
+	
    private Prioridade prioridade;
    private Status status;
    private String titulo;

@@ -1,9 +1,8 @@
 package com.project.helpdesk.domain.enums;
 
-import javax.management.relation.Role;
 
 public enum Status {
-	ABERTO(0,"ROLE_ABERTO"), ANDAMENTO(1, "ROLE_ANDAMENTO"), TECNICO(2, "ENCERRADO_TECNICO");
+	ABERTO(0,"ABERTO"), ANDAMENTO(1, "ANDAMENTO"), ENCERRADO(2, "ENCERRADO");
 	
 	private Integer codigo;
 	private String descricao;
