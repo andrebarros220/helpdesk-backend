@@ -48,4 +48,6 @@ public class TecnicoResource {
 		URI uri =ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newOBJ.getId()).toUri();
 		return ResponseEntity.created(uri).build(); 
 	}
+	
+	
 }

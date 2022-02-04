@@ -42,7 +42,6 @@ public class TecnicoDTO implements Serializable{
 		addPerfil(Perfil.CLIENTE);
 	}
 
-
 	public Integer getId() {
 		return id;
 	}
