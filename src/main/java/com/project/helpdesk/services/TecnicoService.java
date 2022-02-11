@@ -2,6 +2,9 @@ package com.project.helpdesk.services;
 
 import java.util.List;
 import java.util.Optional;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -38,6 +41,14 @@ public class TecnicoService {
 		return repository.save(newOBJ); 	
 	}
 
+	public Tecnico update(Integer id, @Valid TecnicoDTO objDTO) {
+		objDTO.setId(id);
+		Tecnico oldObj = findById(id);
+		ValidaporCpfEEmail(objDTO);
+		oldObj = new Tecnico(objDTO);
+		return repository.save(oldObj);
+	}  
+	
 	private void ValidaporCpfEEmail(TecnicoDTO objDTO) {
 		Optional <Pessoa> obj = pessoaRepository.findByCpf(objDTO.getCpf()); 
 		if(obj.isPresent() && obj.get().getId() != objDTO.getId()) {
@@ -49,6 +60,8 @@ public class TecnicoService {
 			throw new DataIntegrityViolationException("Email já existente");
 	   }
 		
-	}  
+	}
+
+	
 
 }

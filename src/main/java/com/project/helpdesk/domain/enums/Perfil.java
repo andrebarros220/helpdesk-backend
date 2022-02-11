@@ -1,7 +1,5 @@
 package com.project.helpdesk.domain.enums;
 
-import javax.management.relation.Role;
-
 public enum Perfil {
 	ADMIN(0,"ROLE_ADMIN"), CLIENTE(1, "ROLE_CLIENTE"), TECNICO(2, "ROLE_TECNICO");
 	

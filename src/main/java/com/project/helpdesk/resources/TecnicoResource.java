@@ -3,9 +3,7 @@ package com.project.helpdesk.resources;
 import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import javax.servlet.Servlet;
-
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import com.project.helpdesk.domain.Tecnico;
 import com.project.helpdesk.domain.dtos.TecnicoDTO;
 import com.project.helpdesk.services.TecnicoService;
@@ -43,11 +40,18 @@ public class TecnicoResource {
 	}
 	
 	@PostMapping
-	public ResponseEntity<TecnicoDTO> create(@RequestBody TecnicoDTO objDTO) {
+	public ResponseEntity<TecnicoDTO> create(@Valid @RequestBody TecnicoDTO objDTO) {
 		Tecnico newOBJ = service.create(objDTO);
 		URI uri =ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newOBJ.getId()).toUri();
 		return ResponseEntity.created(uri).build(); 
 	}
+	
+	
+	public ResponseEntity<TecnicoDTO> update(@PathVariable Integer id, @Valid @RequestBody TecnicoDTO objDTO ){
+		Tecnico obj = service.update(id, objDTO);
+		return ResponseEntity.ok().body(new TecnicoDTO(obj));
+	}
+	
 	
 	
 }
