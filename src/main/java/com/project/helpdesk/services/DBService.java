@@ -12,9 +12,7 @@ import com.project.helpdesk.domain.enums.Perfil;
 import com.project.helpdesk.domain.enums.Prioridade;
 import com.project.helpdesk.domain.enums.Status;
 import com.project.helpdesk.repositories.ChamadoRepository;
-import com.project.helpdesk.repositories.ClienteRepository;
 import com.project.helpdesk.repositories.PessoaRepository;
-import com.project.helpdesk.repositories.TecnicoRepository;
 
 @Service
 public class DBService {
