@@ -1,5 +1,6 @@
 package com.project.helpdesk.services;
 
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,10 @@ public class ChamadoService {
 	public Chamado findById(Integer id) throws ObjectNotFoundException {
 		Optional<Chamado> obj = repository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não econtrado! Id:" + id));
+	}
+
+	public List<Chamado> findAll() {
+		return repository.findAll();
 	}
 	
 }
